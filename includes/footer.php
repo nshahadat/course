@@ -13,7 +13,7 @@
                     <li><a href="/course/account/account_login.php">Accounts Login</a></li>
                     <li><a href="/course/advisor/advisor_login.php">Advisor Login</a></li>
                     <li><a href="/course/registrar/registrar_login.php">Registrar Login</a></li>
-                    <li><a href="/course/admin/adminlogin.php">Admin</a></li>
+                    <li><a href="/course/admin/admin_login.php">Admin</a></li>
                 </ul>
             </div>
             <div class="footer-col">

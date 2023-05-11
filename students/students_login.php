@@ -9,8 +9,10 @@ session_start();
         <h2>Students Login</h2>
         <label for="email">Email</label>
         <input type="email" name="email" id="email" required />
+
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required />
+
         <input type="submit" value="Login" name="stulogin" class="login-btn1">
     </form>
 </div>
@@ -18,6 +20,7 @@ session_start();
 <?php
 
 if (isset($_POST['stulogin'])) {
+
     $email = $_POST['email'];
     $pass = $_POST['password'];
 
@@ -27,15 +30,18 @@ if (isset($_POST['stulogin'])) {
     $data = mysqli_fetch_assoc($result);
 
     if ($row > 0) {
+
         $_SESSION['username'] = $data['username'];
-        $_SESSION['userid'] = $data['stuID'];
+        $_SESSION['userid'] = $data['id'];
         echo "<script>window.location='/course/students/students_feed.php'</script>";
-        echo $_SESSION['userid'];
+
     } else {
+
         echo "<script>
-    alert('Wrong username or password');
-    window.location ='/course/students/students_login.php';
-    </script>";
+        alert('Wrong username or password');
+        window.location ='/course/students/students_login.php';
+        </script>";
+
     }
 
 }
