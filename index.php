@@ -2,6 +2,7 @@
 include "includes/header.php";
 include "includes/db.php";
 ?>
+
 <section class="hero-section">
     <div class="left-hero">
         <img src="./media/student.png" id="left-hero-img" class="left-hero-img">
