@@ -5,13 +5,11 @@ session_start();
 ?>
 
 <?php
-$advisor = $_SESSION['username'];
 
-$datasql = "SELECT p.*,s.*,c.*
+$datasql = "SELECT p.*,s.* 
 FROM pending_course_requests p
 JOIN students s ON p.student_name = s.username
-JOIN offered_courses c ON p.course_title = c.title
-WHERE p.con_from_acc = 1 AND p.con_from_adv IS NULL AND c.course_teacher = '$advisor'";
+WHERE p.con_from_acc = 1 AND p.con_from_adv = 1 AND p.con_from_reg IS NULL";
 $dataresult = mysqli_query($mysqli, $datasql) or die(mysqli_error($mysqli));
 
 ?>
@@ -33,7 +31,7 @@ $dataresult = mysqli_query($mysqli, $datasql) or die(mysqli_error($mysqli));
             <th>Student Id</th>
             <th>Student Batch</th>
             <th>Which course to Enroll</th>
-            <th>Clearance from Advisor</th>
+            <th>Clearance from Account</th>
         </tr>
         <?php while ($data = mysqli_fetch_assoc($dataresult)) {
 
@@ -79,14 +77,30 @@ if (isset($_POST['savebtn'])) {
     $courhidden = $_POST['couridhidden'];
 
     $updatedatasql = "UPDATE pending_course_requests 
-    SET con_from_adv = $data 
+    SET con_from_reg = $data 
     WHERE student_name = '$stuhidden' AND course_title = '$courhidden'";
-    mysqli_query($mysqli, $updatedatasql) or die(mysqli_error($mysqli));
+    if (mysqli_query($mysqli, $updatedatasql)) {
 
-    echo "<script>
-    alert('You just changed the payment information of this student');
-    window.location = '/course/account/check_applies.php';
-    </script>";
+        $confirmsql = "INSERT INTO 
+                        confirmed_courses (course_title, student_name)
+                        VALUES ('$courhidden', '$stuhidden')";
+        if (mysqli_query($mysqli, $confirmsql)) {
+
+            echo "<script>
+            alert('You just changed the payment information of this student');
+            window.location = '/course/registrar/check_applies.php';
+            </script>";
+
+        } else {
+
+            echo "<script>
+            alert('Something went wrong');
+            window.location = '/course/registrar/check_applies.php';
+            </script>";
+
+        }
+
+    }
 
 }
 

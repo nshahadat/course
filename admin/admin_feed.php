@@ -34,7 +34,7 @@ session_start();
         while ($data = mysqli_fetch_assoc($result)) {
 
             $title = $data['title'];
-            $advisor = $data['advisor'];
+            $advisor = $data['course_teacher'];
             $semester = $data['semester'];
             $course_credits = $data['course_credits'];
             $id = $data['id'];
@@ -75,13 +75,13 @@ if (isset($_POST['savebtn'])) {
     $approval = $_POST['approval'];
     $id = $_POST['id'];
 
-    $sql = "UPDATE offered_courses
+    if ($approval == 1) {
+
+        $sql = "UPDATE offered_courses
             SET approved = $approval
             WHERE id = $id";
 
-    if (mysqli_query($mysqli, $sql)) {
-
-        if ($id == 1) {
+        if (mysqli_query($mysqli, $sql)) {
 
             echo "<script>
             alert('Course approved');
@@ -90,35 +90,34 @@ if (isset($_POST['savebtn'])) {
 
         } else {
 
-            $del = "DELETE FROM offered_courses WHERE id = $id";
+            echo "<script>
+            alert('Something went wrong');
+            window.location='/course/admin/admin_feed.php';
+            </script>";
 
+        }
+    } else if ($approval == 0) {
 
-            if (mysqli_query($mysqli, $del)) {
+        $del = "DELETE FROM offered_courses WHERE id = $id";
 
-                echo "<script>
-                alert('Course denied');
-                window.location='/course/admin/admin_feed.php';
-                </script>";
+        if (mysqli_query($mysqli, $del)) {
 
-            } else {
+            echo "<script>
+            alert('Course denied');
+            window.location='/course/admin/admin_feed.php';
+            </script>";
 
-                echo "<script>
-                alert('Something went wrong');
-                window.location='/course/admin/admin_feed.php';
-                </script>";
+        } else {
 
-            }
+            echo "<script>
+            alert('Something went wrong');
+            window.location='/course/admin/admin_feed.php';
+            </script>";
 
         }
 
-    } else {
-
-        echo "<script>
-        alert('Something went wrong');
-        window.location='/course/admin/admin_feed.php';
-        </script>";
-
     }
+
 }
 
 ?>

@@ -20,7 +20,7 @@ $advisordata = mysqli_fetch_assoc($advisorresult);
 
 $advisor = $advisordata['advisor'];
 
-$coursesql = "SELECT * FROM offered_courses WHERE approved = 1 AND advisor = '$advisor'";
+$coursesql = "SELECT * FROM offered_courses WHERE approved = 1 AND course_teacher = '$advisor'";
 $resultcourse = mysqli_query($mysqli, $coursesql) or die(mysqli_error($mysqli));
 $stuid = $_SESSION['userid'];
 
@@ -50,7 +50,7 @@ $stuid = $_SESSION['userid'];
                                 <?= $datacourse['title'] ?>
                             </h1>
                             <p>Advisor:
-                                <?= $datacourse['advisor'] ?>
+                                <?= $datacourse['course_teacher'] ?>
                             </p>
                             <p>Semester:
                                 <?= $datacourse['semester'] ?>
