@@ -20,6 +20,7 @@ session_start();
     <div>
         <button onclick=gotoapplies()>Check New Applies</button>
         <button onclick=gotohistory()>Confirmation History</button>
+        <button onclick=gotoaccounts()>Check Accounts</button>
     </div>
 </div>
 
@@ -29,6 +30,9 @@ session_start();
     }
     function gotoapplies() {
         window.location = '/course/account/check_applies.php'
+    }
+    function gotoaccounts() {
+        window.location = '/course/account/check_accounts.php'
     }
 </script>
 

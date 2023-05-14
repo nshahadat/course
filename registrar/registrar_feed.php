@@ -25,10 +25,10 @@ session_start();
 
 <script>
     function gotocheck() {
-        window.location = '/course/registrar/check_credits.php ?>'
+        window.location = '/course/registrar/check_credits.php'
     }
     function gotoapplies() {
-        window.location = '/course/registrar/check_applies.php ?>'
+        window.location = '/course/registrar/check_applies.php'
     }
 </script>
 
