@@ -25,45 +25,50 @@ $dataresult = mysqli_query($mysqli, $datasql) or die(mysqli_error($mysqli));
     </div>
     <hr>
 
-    <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
-        <tr>
-            <th>Student Name</th>
-            <th>Student Id</th>
-            <th>Student Batch</th>
-            <th>Which course to Enroll</th>
-            <th>Clearance from Account</th>
-        </tr>
-        <?php while ($data = mysqli_fetch_assoc($dataresult)) {
+    <?php if (mysqli_num_rows($dataresult) > 0) { ?>
 
-            $stuname = $data['username'];
-            $courname = $data['course_title'];
-
-            ?>
+        <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
             <tr>
-                <td>
-                    <?= $data['full_name'] ?>
-                </td>
-                <td>
-                    <?= $data['student_id'] ?>
-                </td>
-                <td>
-                    <?= $data['batch'] ?>
-                </td>
-                <td>
-                    <?= $data['course_title'] ?>
-                </td>
-                <td>
-                    <form action="" method="post">
-                        <select name="practical" class="select-button4">
-                            <option value=1>Yes</option>
-                            <option value=0>No</option>
-                        </select>
-                        <input type="submit" name="savebtn" class="table-btn" value="save">
-                        <input type="hidden" name="stuidhidden" value="<?= $stuname ?>">
-                        <input type="hidden" name="couridhidden" value="<?= $courname ?>">
-                    </form>
-                </td>
+                <th>Student Name</th>
+                <th>Student Id</th>
+                <th>Student Batch</th>
+                <th>Which course to Enroll</th>
+                <th>Clearance from Account</th>
             </tr>
+            <?php while ($data = mysqli_fetch_assoc($dataresult)) {
+
+                $stuname = $data['username'];
+                $courname = $data['course_title'];
+
+                ?>
+                <tr>
+                    <td>
+                        <?= $data['full_name'] ?>
+                    </td>
+                    <td>
+                        <?= $data['student_id'] ?>
+                    </td>
+                    <td>
+                        <?= $data['batch'] ?>
+                    </td>
+                    <td>
+                        <?= $data['course_title'] ?>
+                    </td>
+                    <td>
+                        <form action="" method="post">
+                            <select name="practical" class="select-button4">
+                                <option value=1>Yes</option>
+                                <option value=0>No</option>
+                            </select>
+                            <input type="submit" name="savebtn" class="table-btn" value="save">
+                            <input type="hidden" name="stuidhidden" value="<?= $stuname ?>">
+                            <input type="hidden" name="couridhidden" value="<?= $courname ?>">
+                        </form>
+                    </td>
+                </tr>
+            <?php }
+    } else { ?>
+            <h1>No new applies right now</h1>
         <?php } ?>
     </table>
 </div>

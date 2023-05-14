@@ -89,7 +89,7 @@ if (isset($_POST['submitbtn'])) {
 
     $insertcoursesql = "INSERT INTO   
                     offered_courses (title, course_teacher, semester, year, course_credits, course_fees, approved)
-                    VALUES ('$coursename', '$advisor', '$semester', '$year', '$fees', '$credit', 0)";
+                    VALUES ('$coursename', '$advisor', '$semester', '$year', '$credit', '$fees', 0)";
 
     echo $insertcoursesql;
 

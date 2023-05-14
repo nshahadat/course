@@ -25,10 +25,10 @@ session_start();
 
 <script>
     function gotohistory() {
-        window.location = '/course/account/confirmation_history.php?account=<?= $_SESSION['username'] ?>'
+        window.location = '/course/account/confirmation_history.php'
     }
     function gotoapplies() {
-        window.location = '/course/account/check_applies.php?account=<?= $_SESSION['username'] ?>'
+        window.location = '/course/account/check_applies.php'
     }
 </script>
 

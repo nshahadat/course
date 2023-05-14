@@ -4,7 +4,7 @@ include "../includes/db.php";
 session_start();
 ?>
 <div class="btn-section">
-    <div class="username-btn"><a href="/coursereg/students/studashboard.php"><button>
+    <div class="username-btn"><a href="/course/students/students_dashboard.php"><button>
                 <?= $_SESSION['username'] ?>
             </button></a></div>
     <a href="/course/logout.php">
@@ -38,7 +38,7 @@ $stuid = $_SESSION['userid'];
 
         <?php } else {
 
-            while ($datacourse = mysqli_fetch_array($resultcourse)) { ?>
+            while ($datacourse = mysqli_fetch_assoc($resultcourse)) { ?>
 
                 <div class="flip-card">
                     <div class="flip-card-inner">
