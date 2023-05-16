@@ -41,7 +41,7 @@ $dataresult = mysqli_query($mysqli, $datasql) or die(mysqli_error($mysqli));
 
                 } else if ($data['payment_complete'] == 0) {
 
-                    $complete = "Yes";
+                    $complete = "No";
 
                 }
 

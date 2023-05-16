@@ -16,6 +16,9 @@ $result = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
         <label for="email">Username</label>
         <input type="text" name="userName" id="email" required />
 
+        <label for="email">Student ID</label>
+        <input type="number" name="stuid" id="email" required />
+
         <label for="email">Email</label>
         <input type="email" name="email" id="email" required />
 
@@ -34,7 +37,7 @@ $result = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required />
-        <input type="submit" value="Login" name="stucreate" class="login-btn1">
+        <input type="submit" value="Sign Up" name="stucreate" class="login-btn1">
     </form>
 </div>
 
@@ -48,8 +51,9 @@ if (isset($_POST['stucreate'])) {
     $fullname = strtoupper($_POST['fullName']);
     $batch = $_POST['batch'];
     $credits = $_POST['credits'];
+    $stuid = $_POST['stuid'];
 
-    $checkusernamesql = "SELECT username FROM students";
+    $checkusernamesql = "SELECT username FROM students WHERE username = '$username'";
     $checkusernameresult = mysqli_query($mysqli, $checkusernamesql) or die(mysqli_error($mysqli));
     $count = mysqli_num_rows($checkusernameresult);
 
@@ -63,8 +67,8 @@ if (isset($_POST['stucreate'])) {
     } else {
 
         $newstusql = "INSERT INTO 
-        students(full_name, username, batch, email, password, credits)
-        VALUES('$fullname', '$username', '$batch', '$email', '$pass', '$credits')";
+        students(full_name, username, batch, student_id, email, password, credits)
+        VALUES('$fullname', '$username', '$batch', '$stuid', '$email', '$pass', '$credits')";
 
         if ($mysqli->query($newstusql)) {
 

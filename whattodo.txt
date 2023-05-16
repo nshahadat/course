@@ -1,0 +1,27 @@
+| Completed |
+
+# Student Login & Signup
+# Student Check all the courses of his Advisor
+# Student enroll on a course
+# Student payment for that course
+# Student check confirm courses and pending courses
+
+# Advisor Login
+# Upload new course
+# Check new applies
+
+# Registrar Login
+# Check credits of semester
+# Check new applies
+
+# Accounts Login
+# Check payment history
+# Check new applies
+
+# Admin Login
+# Confirm Uploaded courses
+
+| Pending |
+
+# Accounts confirmation history
+# Admin add advisor

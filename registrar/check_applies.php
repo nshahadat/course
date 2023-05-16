@@ -31,7 +31,7 @@ $dataresult = mysqli_query($mysqli, $datasql) or die(mysqli_error($mysqli));
             <th>Student Id</th>
             <th>Student Batch</th>
             <th>Which course to Enroll</th>
-            <th>Clearance from Account</th>
+            <th>Clearance from Registrar</th>
         </tr>
         <?php while ($data = mysqli_fetch_assoc($dataresult)) {
 

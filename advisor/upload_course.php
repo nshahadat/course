@@ -46,7 +46,7 @@ $courseresult = mysqli_query($mysqli, $coursesql) or die(mysqli_error($mysqli));
             <option value="Spring">Spring</option>
         </select>
 
-        <label for="cour_name">Semester</label>
+        <label for="cour_name">Year</label>
         <select name="year" id="selectField">
             <option disabled selected>Choose</option>
             <option value="2021">2021</option>
@@ -88,10 +88,8 @@ if (isset($_POST['submitbtn'])) {
     $getcodedata = mysqli_fetch_assoc($getcoderesult);
 
     $insertcoursesql = "INSERT INTO   
-                    offered_courses (title, course_teacher, semester, year, course_credits, course_fees, approved)
-                    VALUES ('$coursename', '$advisor', '$semester', '$year', '$credit', '$fees', 0)";
-
-    echo $insertcoursesql;
+                    offered_courses (title, course_teacher, semester, semester_name, year, course_credits, course_fees, approved)
+                    VALUES ('$coursename', '$advisor', '$semester', '$selectsemester', '$year', '$credit', '$fees', 0)";
 
     if (mysqli_query($mysqli, $insertcoursesql)) {
 

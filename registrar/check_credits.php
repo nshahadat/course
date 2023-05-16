@@ -26,32 +26,23 @@ session_start();
         </tr>
         <?php
 
-        $sql = "SELECT p.*, c.*, t.total_credits, t.total_course
-                FROM pending_course_requests p
-                JOIN offered_courses c ON p.course_title = c.title
-                JOIN (
-                SELECT oc.semester, SUM(oc.course_credits) AS total_credits, COUNT(*) AS total_course
-                FROM offered_courses oc
-                GROUP BY oc.semester
-                ) t ON c.semester = t.semester
-                WHERE
-                p.con_from_acc = 1
-                ORDER BY
-                c.semester;    
-                ";
+        $sql = "SELECT * FROM semester";
         $result = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 
         while ($data = mysqli_fetch_assoc($result)) {
+
+            $semester = $data['semester_name'] . " " . $data['semester_year'];
+
             ?>
             <tr>
                 <td>
-                    <?= $data['semester'] ?>
+                    <?= $semester ?>
                 </td>
                 <td>
-                    <?= $data['total_course'] ?>
+                    <?= $data['semester_courses'] ?>
                 </td>
                 <td>
-                    <?= $data['total_credits'] ?>
+                    <?= $data['semester_credits'] ?>
                 </td>
             </tr>
         <?php } ?>
