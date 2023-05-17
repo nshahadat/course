@@ -829,6 +829,30 @@ td button {
     background-color: #52ab98;
 }
 
+.adv-btn button {
+    width: 80px;
+    border: none;
+    outline: none;
+    height: 40px;
+    border-radius: 0.3rem;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.2s;
+    position: absolute;
+    top: 6vw;
+    right: 30vw;
+    z-index: 1000;
+}
+
+.adv-btn .transparent:hover {
+    background-color: white;
+    color: #4d84e2;
+}
+.adv-btn :hover {
+    background-color: #52ab98;
+}
+
 .username-btn button {
     min-width: 80px;
     border: none;

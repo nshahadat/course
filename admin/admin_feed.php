@@ -4,7 +4,15 @@ include "../includes/db.php";
 session_start();
 ?>
 
+<?php
+
+$sql = "SELECT * FROM offered_courses WHERE approved = 0";
+$result = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
+
+?>
+
 <div class="container">
+
     <div class="btn-section">
         <div class="username-btn">
             <button>
@@ -16,56 +24,65 @@ session_start();
                 <button>logout</button>
             </div>
         </a>
+        <div class="adv-btn">
+            <button>Add Advisor</button>
+        </div>
     </div>
 
-    <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
-        <tr>
-            <th>Course Title</th>
-            <th>Course Advisor</th>
-            <th>Semester</th>
-            <th>Credits</th>
-            <th>Approval</th>
-        </tr>
-        <?php
+    <?php
 
-        $sql = "SELECT * FROM offered_courses WHERE approved = 0";
-        $result = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
+    if (mysqli_num_rows($result) > 0) {
 
-        while ($data = mysqli_fetch_assoc($result)) {
+        ?>
 
-            $title = $data['title'];
-            $advisor = $data['course_teacher'];
-            $semester = $data['semester'];
-            $course_credits = $data['course_credits'];
-            $id = $data['id'];
-
-            ?>
+        <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
             <tr>
-                <td>
-                    <?= $title ?>
-                </td>
-                <td>
-                    <?= $advisor ?>
-                </td>
-                <td>
-                    <?= $semester ?>
-                </td>
-                <td>
-                    <?= $course_credits ?>
-                </td>
-                <td>
-                    <form action="" method="post">
-                        <select name="approval" class="select-button4">
-                            <option value=1>Yes</option>
-                            <option value=0>No</option>
-                        </select>
-                        <input type="submit" name="savebtn" class="table-btn" value="save">
-                        <input type="hidden" name="id" class="table-btn" value="<?= $id ?>">
-                    </form>
-                </td>
+                <th>Course Title</th>
+                <th>Course Advisor</th>
+                <th>Semester</th>
+                <th>Credits</th>
+                <th>Approval</th>
             </tr>
-        <?php } ?>
-    </table>
+            <?php while ($data = mysqli_fetch_assoc($result)) {
+
+                $title = $data['title'];
+                $advisor = $data['course_teacher'];
+                $semester = $data['semester'];
+                $course_credits = $data['course_credits'];
+                $id = $data['id'];
+
+                ?>
+                <tr>
+                    <td>
+                        <?= $title ?>
+                    </td>
+                    <td>
+                        <?= $advisor ?>
+                    </td>
+                    <td>
+                        <?= $semester ?>
+                    </td>
+                    <td>
+                        <?= $course_credits ?>
+                    </td>
+                    <td>
+                        <form action="" method="post">
+                            <select name="approval" class="select-button4">
+                                <option value=1>Yes</option>
+                                <option value=0>No</option>
+                            </select>
+                            <input type="submit" name="savebtn" class="table-btn" value="save">
+                            <input type="hidden" name="id" class="table-btn" value="<?= $id ?>">
+                        </form>
+                    </td>
+                </tr>
+            <?php } ?>
+        </table>
+    <?php } else { ?>
+        <div>
+            <h1>You have no pending requests</h1>
+        </div>
+    <?php } ?>
 </div>
 
 <?php
