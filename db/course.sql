@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2023 at 09:40 PM
+-- Generation Time: May 18, 2023 at 08:38 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -142,8 +142,17 @@ INSERT INTO `batch` (`id`, `name`, `advisor`) VALUES
 CREATE TABLE `confirmed_courses` (
   `id` int(11) NOT NULL,
   `course_title` varchar(255) NOT NULL,
-  `student_name` varchar(255) NOT NULL
+  `student_name` varchar(255) NOT NULL,
+  `confirm_date` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `confirmed_courses`
+--
+
+INSERT INTO `confirmed_courses` (`id`, `course_title`, `student_name`, `confirm_date`) VALUES
+(1, 'Database Design', 'farin', '2023-05-13 18:16:38.204818'),
+(2, 'Data Mining', 'farin', '2023-05-16 17:15:05.021624');
 
 -- --------------------------------------------------------
 
@@ -154,8 +163,10 @@ CREATE TABLE `confirmed_courses` (
 CREATE TABLE `offered_courses` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `advisor` varchar(255) NOT NULL,
+  `course_teacher` varchar(255) NOT NULL,
   `semester` varchar(255) NOT NULL,
+  `semester_name` varchar(255) NOT NULL,
+  `year` int(255) NOT NULL,
   `course_credits` int(11) NOT NULL,
   `course_fees` int(11) NOT NULL,
   `approved` int(10) NOT NULL
@@ -165,8 +176,52 @@ CREATE TABLE `offered_courses` (
 -- Dumping data for table `offered_courses`
 --
 
-INSERT INTO `offered_courses` (`id`, `title`, `advisor`, `semester`, `course_credits`, `course_fees`, `approved`) VALUES
-(1, 'Database Design', 'KAMRUL SIR', 'Summer', 3, 2400, 1);
+INSERT INTO `offered_courses` (`id`, `title`, `course_teacher`, `semester`, `semester_name`, `year`, `course_credits`, `course_fees`, `approved`) VALUES
+(1, 'Database Design', 'KAMRUL SIR', 'Summer 2023', 'Summer', 2023, 3, 2400, 1),
+(4, 'Algorithm & Data structure', 'KAMRUL SIR', 'Spring 2023', 'Spring', 2023, 4, 6000, 1),
+(5, 'Data Mining', 'KAMRUL SIR', 'Summer 2023', 'Summer', 2023, 4, 5000, 1),
+(14, 'Computer Graphics', 'KAMRUL SIR', 'Spring 2023', 'Spring', 2023, 4, 4500, 1);
+
+--
+-- Triggers `offered_courses`
+--
+DELIMITER $$
+CREATE TRIGGER `update_semester_courses` AFTER INSERT ON `offered_courses` FOR EACH ROW BEGIN
+    UPDATE semester
+    SET semester_courses = semester_courses + 1
+    WHERE semester_name = NEW.semester_name AND semester_year = NEW.year;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update_semester_credits` AFTER INSERT ON `offered_courses` FOR EACH ROW BEGIN
+    UPDATE semester
+    SET semester_credits = semester_credits + NEW.course_credits
+    WHERE semester_name = NEW.semester_name AND semester_year = NEW.year;
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `id` int(11) NOT NULL,
+  `student_name` varchar(255) NOT NULL,
+  `payment_course` varchar(255) NOT NULL,
+  `payment_complete` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id`, `student_name`, `payment_course`, `payment_complete`) VALUES
+(2, 'farin', 'Algorithm & Data structure', 1),
+(3, 'farin', 'Data Mining', 1);
 
 -- --------------------------------------------------------
 
@@ -178,6 +233,7 @@ CREATE TABLE `pending_course_requests` (
   `id` int(11) NOT NULL,
   `course_title` varchar(255) NOT NULL,
   `student_name` varchar(255) NOT NULL,
+  `apply_date` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
   `con_from_adv` int(11) DEFAULT NULL,
   `con_from_reg` int(11) DEFAULT NULL,
   `con_from_acc` int(11) DEFAULT NULL
@@ -187,8 +243,21 @@ CREATE TABLE `pending_course_requests` (
 -- Dumping data for table `pending_course_requests`
 --
 
-INSERT INTO `pending_course_requests` (`id`, `course_title`, `student_name`, `con_from_adv`, `con_from_reg`, `con_from_acc`) VALUES
-(1, 'Database Design', 'farin', NULL, NULL, NULL);
+INSERT INTO `pending_course_requests` (`id`, `course_title`, `student_name`, `apply_date`, `con_from_adv`, `con_from_reg`, `con_from_acc`) VALUES
+(1, 'Database Design', 'farin', '2023-05-13 18:16:38.200452', 1, 1, 1),
+(3, 'Algorithm & Data structure', 'farin', '2023-05-14 14:59:47.843211', 1, 1, 1),
+(4, 'Data Mining', 'farin', '2023-05-16 17:15:05.018011', 1, 1, 1);
+
+--
+-- Triggers `pending_course_requests`
+--
+DELIMITER $$
+CREATE TRIGGER `course_insert_trigger` AFTER INSERT ON `pending_course_requests` FOR EACH ROW BEGIN
+    INSERT INTO payment (student_name, payment_course)
+    VALUES (NEW.student_name, NEW.course_title);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -213,6 +282,28 @@ INSERT INTO `registrar` (`id`, `name`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `semester`
+--
+
+CREATE TABLE `semester` (
+  `id` int(11) NOT NULL,
+  `semester_name` varchar(255) NOT NULL,
+  `semester_year` int(11) NOT NULL,
+  `semester_courses` int(255) NOT NULL,
+  `semester_credits` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `semester`
+--
+
+INSERT INTO `semester` (`id`, `semester_name`, `semester_year`, `semester_courses`, `semester_credits`) VALUES
+(1, 'Summer', 2023, 2, 7),
+(2, 'Spring', 2023, 2, 8);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
@@ -221,6 +312,7 @@ CREATE TABLE `students` (
   `full_name` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `batch` varchar(255) NOT NULL,
+  `student_id` int(30) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `advisor` varchar(255) DEFAULT NULL,
@@ -231,10 +323,11 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `full_name`, `username`, `batch`, `email`, `password`, `advisor`, `credits`) VALUES
-(1, 'MD FARIN AHMED', 'farin', 'CSE01', 'farin@gmail.com', 'farin', 'KAMRUL SIR', 50),
-(2, 'LAMIA BINTE SARKER', 'lamia', 'CSE02', 'lamia@gmail.com', 'lamia', 'BOSHIR SIR', 65),
-(5, 'RASHID KHAN', 'rashid', 'CSE03', 'rashid@gmail.com', 'rashid', 'NAZIM SIR', 43);
+INSERT INTO `students` (`id`, `full_name`, `username`, `batch`, `student_id`, `email`, `password`, `advisor`, `credits`) VALUES
+(1, 'MD FARIN AHMED', 'farin', 'CSE01', 1233217893, 'farin@gmail.com', 'farin', 'KAMRUL SIR', 50),
+(2, 'LAMIA BINTE SARKER', 'lamia', 'CSE02', 439286404, 'lamia@gmail.com', 'lamia', 'BOSHIR SIR', 65),
+(5, 'RASHID KHAN', 'rashid', 'CSE03', 765427657, 'rashid@gmail.com', 'rashid', 'NAZIM SIR', 43),
+(7, 'MD BALA', 'bala', 'CSE03', 1326543, 'bala@gmail.com', 'bala', 'NAZIM SIR', 45);
 
 --
 -- Triggers `students`
@@ -297,7 +390,14 @@ ALTER TABLE `confirmed_courses`
 ALTER TABLE `offered_courses`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `title` (`title`),
-  ADD KEY `courses_fk0` (`advisor`);
+  ADD KEY `courses_fk0` (`course_teacher`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pending_student_fk0` (`student_name`);
 
 --
 -- Indexes for table `pending_course_requests`
@@ -314,11 +414,18 @@ ALTER TABLE `registrar`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `semester`
+--
+ALTER TABLE `semester`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `student_id` (`student_id`),
   ADD KEY `students_fk0` (`batch`),
   ADD KEY `students_fk1` (`advisor`);
 
@@ -342,7 +449,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `advisor`
 --
 ALTER TABLE `advisor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `all_courses`
@@ -360,19 +467,25 @@ ALTER TABLE `batch`
 -- AUTO_INCREMENT for table `confirmed_courses`
 --
 ALTER TABLE `confirmed_courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `offered_courses`
 --
 ALTER TABLE `offered_courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pending_course_requests`
 --
 ALTER TABLE `pending_course_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `registrar`
@@ -381,10 +494,16 @@ ALTER TABLE `registrar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `semester`
+--
+ALTER TABLE `semester`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -401,8 +520,14 @@ ALTER TABLE `confirmed_courses`
 -- Constraints for table `offered_courses`
 --
 ALTER TABLE `offered_courses`
-  ADD CONSTRAINT `courses_fk0` FOREIGN KEY (`advisor`) REFERENCES `advisor` (`name`),
+  ADD CONSTRAINT `courses_fk0` FOREIGN KEY (`course_teacher`) REFERENCES `advisor` (`name`),
   ADD CONSTRAINT `offered_courses_fk0` FOREIGN KEY (`title`) REFERENCES `all_courses` (`title`);
+
+--
+-- Constraints for table `payment`
+--
+ALTER TABLE `payment`
+  ADD CONSTRAINT `pending_student_fk0` FOREIGN KEY (`student_name`) REFERENCES `pending_course_requests` (`student_name`);
 
 --
 -- Constraints for table `pending_course_requests`
