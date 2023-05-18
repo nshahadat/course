@@ -40,54 +40,52 @@ $stuid = $_SESSION['userid'];
 
             while ($datacourse = mysqli_fetch_assoc($resultcourse)) { ?>
 
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="/coursereg/media/images/sample1.png" class="flip-card-img">
-                        </div>
-                        <div class="flip-card-back">
-                            <h1>
-                                <?= $datacourse['title'] ?>
-                            </h1>
-                            <p>Advisor:
-                                <?= $datacourse['course_teacher'] ?>
-                            </p>
-                            <p>Semester:
-                                <?= $datacourse['semester'] ?>
-                            </p>
-                            <p>Credits:
-                                <?= $datacourse['course_credits'] ?>
-                            </p>
-                            <p>Fees:
-                                <?= $datacourse['course_fees'] ?>
-                            </p>
-                            <p>
-                            <form action="#" method="POST">
+                <?php
 
-                                <?php
-
-                                $course = $datacourse['title'];
-                                $enrollsql = "SELECT * FROM pending_course_requests WHERE course_title = '$course' AND student_name = '$user'";
-                                $enrollresult = mysqli_query($mysqli, $enrollsql) or die(mysqli_error($mysqli));
+                $course = $datacourse['title'];
+                $enrollsql = "SELECT * FROM pending_course_requests WHERE course_title = '$course' AND student_name = '$user'";
+                $enrollresult = mysqli_query($mysqli, $enrollsql) or die(mysqli_error($mysqli));
 
 
-                                if (mysqli_num_rows($enrollresult) == 0) { ?>
+                if (mysqli_num_rows($enrollresult) == 0) { ?>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="/coursereg/media/images/sample1.png" class="flip-card-img">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>
+                                    <?= $datacourse['title'] ?>
+                                </h1>
+                                <p>Advisor:
+                                    <?= $datacourse['course_teacher'] ?>
+                                </p>
+                                <p>Semester:
+                                    <?= $datacourse['semester'] ?>
+                                </p>
+                                <p>Credits:
+                                    <?= $datacourse['course_credits'] ?>
+                                </p>
+                                <p>Fees:
+                                    <?= $datacourse['course_fees'] ?>
+                                </p>
+                                <p>
+                                <form action="#" method="POST">
+
+
 
                                     <input type="submit" name="submitCourse" value="Enroll" class="enroll-btn">
                                     <input type="hidden" name="coursetitle" value="<?= $datacourse['title'] ?>" class="enroll-btn">
 
-                                <?php } else { ?>
 
-                                    <small>You've already applied for this course</small>
-
-                                <?php } ?>
-
-                            </form>
-                            </p>
+                                </form>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php }
+                <?php }
+            }
         } ?>
     </div>
 </div>
