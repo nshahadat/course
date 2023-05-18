@@ -16,10 +16,15 @@ session_start();
                 <button>logout</button>
             </div>
         </a>
+        <a href="/course/students/students_feed.php">
+            <div class="adv-btn">
+                <button>Go Back</button>
+            </div>
+        </a>
     </div>
     <div>
-        <button onclick=gotopayment()>Check Payments</button>
-        <button onclick=gotocourse()>Check Courses</button>
+        <button class="extra-btn" onclick=gotopayment()>Check Payments</button>
+        <button class="extra-btn" onclick=gotocourse()>Check Courses</button>
     </div>
 </div>
 

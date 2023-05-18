@@ -24,50 +24,62 @@ $dataresult = mysqli_query($mysqli, $datasql) or die(mysqli_error($mysqli));
         <a href="../index.php">
             <div class="logout-btn"><button>logout</button></div>
         </a>
+        <a href="/course/advisor/advisor_feed.php">
+            <div class="adv-btn">
+                <button>Go Back</button>
+            </div>
+        </a>
     </div>
     <hr>
+    <?php
 
-    <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
-        <tr>
-            <th>Student Name</th>
-            <th>Student Id</th>
-            <th>Student Batch</th>
-            <th>Which course to Enroll</th>
-            <th>Clearance from Advisor</th>
-        </tr>
-        <?php while ($data = mysqli_fetch_assoc($dataresult)) {
+    if (mysqli_num_rows($dataresult) > 0) {
 
-            $stuname = $data['username'];
-            $courname = $data['course_title'];
-
-            ?>
+        ?>
+        <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
             <tr>
-                <td>
-                    <?= $data['full_name'] ?>
-                </td>
-                <td>
-                    <?= $data['student_id'] ?>
-                </td>
-                <td>
-                    <?= $data['batch'] ?>
-                </td>
-                <td>
-                    <?= $data['course_title'] ?>
-                </td>
-                <td>
-                    <form action="" method="post">
-                        <select name="practical" class="select-button4">
-                            <option value=1>Yes</option>
-                            <option value=0>No</option>
-                        </select>
-                        <input type="submit" name="savebtn" class="table-btn" value="save">
-                        <input type="hidden" name="stuidhidden" value="<?= $stuname ?>">
-                        <input type="hidden" name="couridhidden" value="<?= $courname ?>">
-                    </form>
-                </td>
+                <th>Student Name</th>
+                <th>Student Id</th>
+                <th>Student Batch</th>
+                <th>Which course to Enroll</th>
+                <th>Clearance from Advisor</th>
             </tr>
-        <?php } ?>
-    </table>
+            <?php while ($data = mysqli_fetch_assoc($dataresult)) {
+
+                $stuname = $data['username'];
+                $courname = $data['course_title'];
+
+                ?>
+                <tr>
+                    <td>
+                        <?= $data['full_name'] ?>
+                    </td>
+                    <td>
+                        <?= $data['student_id'] ?>
+                    </td>
+                    <td>
+                        <?= $data['batch'] ?>
+                    </td>
+                    <td>
+                        <?= $data['course_title'] ?>
+                    </td>
+                    <td>
+                        <form action="" method="post">
+                            <select name="practical" class="select-button4">
+                                <option value=1>Yes</option>
+                                <option value=0>No</option>
+                            </select>
+                            <input type="submit" name="savebtn" class="table-btn" value="save">
+                            <input type="hidden" name="stuidhidden" value="<?= $stuname ?>">
+                            <input type="hidden" name="couridhidden" value="<?= $courname ?>">
+                        </form>
+                    </td>
+                </tr>
+            <?php } ?>
+        </table>
+    <?php } else {
+        echo "<div>No pending requests right now.</div>";
+    } ?>
 </div>
 
 <?php

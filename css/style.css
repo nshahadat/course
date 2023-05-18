@@ -830,7 +830,7 @@ td button {
 }
 
 .adv-btn button {
-    width: 80px;
+    width: 100px;
     border: none;
     outline: none;
     height: 40px;
@@ -850,6 +850,27 @@ td button {
     color: #4d84e2;
 }
 .adv-btn :hover {
+    background-color: #52ab98;
+}
+
+.extra-btn {
+    width: 200px;
+    border: none;
+    outline: none;
+    height: 40px;
+    border-radius: 0.3rem;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 1000;
+}
+
+.extra-btn .transparent:hover {
+    background-color: white;
+    color: #4d84e2;
+}
+.extra-btn:hover {
     background-color: #52ab98;
 }
 

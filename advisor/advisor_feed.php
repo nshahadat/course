@@ -18,8 +18,8 @@ session_start();
         </a>
     </div>
     <div>
-        <button onclick=gotoupload()>Upload New Course</button>
-        <button onclick=gotoapplies()>Check New Applies</button>
+        <button class="extra-btn" onclick=gotoupload()>Upload New Course</button>
+        <button class="extra-btn" onclick=gotoapplies()>Check New Applies</button>
     </div>
 </div>
 

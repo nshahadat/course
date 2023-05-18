@@ -13,6 +13,11 @@ session_start();
         <a href="/course/logout.php">
             <div class="logout-btn"><button>logout</button></div>
         </a>
+        <a href="/course/students/students_feed.php">
+            <div class="adv-btn">
+                <button>Go Back</button>
+            </div>
+        </a>
     </div>
 
     <?php

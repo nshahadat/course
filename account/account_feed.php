@@ -7,7 +7,7 @@ session_start();
 <div class="container">
     <div class="btn-section">
         <div class="username-btn">
-            <button>
+            <button style="min-width:150px !important">
                 <?= $_SESSION['username'] ?>
             </button>
         </div>
@@ -18,9 +18,9 @@ session_start();
         </a>
     </div>
     <div>
-        <button onclick=gotoapplies()>Check New Applies</button>
-        <button onclick=gotohistory()>Confirmation History</button>
-        <button onclick=gotoaccounts()>Check Accounts</button>
+        <button class="extra-btn" onclick=gotoapplies()>Check New Applies</button>
+        <button class="extra-btn" onclick=gotohistory()>Confirmation History</button>
+        <button class="extra-btn" onclick=gotoaccounts()>Check Accounts</button>
     </div>
 </div>
 

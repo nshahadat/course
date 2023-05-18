@@ -16,6 +16,11 @@ session_start();
                 <button>logout</button>
             </div>
         </a>
+        <a href="/course/registrar/registrar_feed.php">
+            <div class="adv-btn">
+                <button>Go Back</button>
+            </div>
+        </a>
     </div>
 
     <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">

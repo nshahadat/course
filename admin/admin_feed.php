@@ -25,7 +25,9 @@ $result = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
             </div>
         </a>
         <div class="adv-btn">
-            <button>Add Advisor</button>
+            <a href="/course/admin/add_advisor.php">
+                <button>Add Advisor</button>
+            </a>
         </div>
     </div>
 

@@ -15,11 +15,18 @@ $dataresult = mysqli_query($mysqli, $datasql) or die(mysqli_error($mysqli));
 
 <div class="container">
     <div class="btn-section">
-        <div class="username-btn"><button>
+        <div class="username-btn">
+            <button style="min-width:150px !important">
                 <?= $_SESSION['username'] ?>
-            </button></div>
+            </button>
+        </div>
         <a href="../index.php">
             <div class="logout-btn"><button>logout</button></div>
+        </a>
+        <a href="/course/account/account_feed.php">
+            <div class="adv-btn">
+                <button style="right:35vw !important">Go Back</button>
+            </div>
         </a>
     </div>
     <hr>

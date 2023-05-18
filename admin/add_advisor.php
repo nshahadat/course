@@ -8,6 +8,15 @@ $result = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 ?>
 
 <div class="container">
+
+    <div class="btn-section">
+        <a href="/course/admin/admin_feed.php">
+            <div class="logout-btn">
+                <button>Go Back</button>
+            </div>
+        </a>
+    </div>
+
     <form class="form-1" method="post">
         <h2>Add Advisor</h2>
 

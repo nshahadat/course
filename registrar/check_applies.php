@@ -22,6 +22,11 @@ $dataresult = mysqli_query($mysqli, $datasql) or die(mysqli_error($mysqli));
         <a href="../index.php">
             <div class="logout-btn"><button>logout</button></div>
         </a>
+        <a href="/course/registrar/registrar_feed.php">
+            <div class="adv-btn">
+                <button>Go Back</button>
+            </div>
+        </a>
     </div>
     <hr>
 

@@ -23,6 +23,11 @@ $courseresult = mysqli_query($mysqli, $coursesql) or die(mysqli_error($mysqli));
                 <button>logout</button>
             </div>
         </a>
+        <a href="/course/advisor/advisor_feed.php">
+            <div class="adv-btn">
+                <button>Go Back</button>
+            </div>
+        </a>
     </div>
 
     <form class="form-1" method="post">
