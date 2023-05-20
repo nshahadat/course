@@ -22,7 +22,7 @@ $dataresult = mysqli_query($mysqli, $datasql) or die(mysqli_error($mysqli));
         <a href="../index.php">
             <div class="logout-btn"><button>logout</button></div>
         </a>
-        <a href="/course/registrar/registrar_feed.php">
+        <a href="./registrar_feed.php">
             <div class="adv-btn">
                 <button>Go Back</button>
             </div>
@@ -93,14 +93,14 @@ if (isset($_POST['savebtn'])) {
 
             echo "<script>
             alert('You just changed the payment information of this student');
-            window.location = '/course/registrar/check_applies.php';
+            window.location = './check_applies.php';
             </script>";
 
         } else {
 
             echo "<script>
             alert('Something went wrong');
-            window.location = '/course/registrar/check_applies.php';
+            window.location = './check_applies.php';
             </script>";
 
         }

@@ -28,12 +28,15 @@ if (isset($_POST['loginbtn'])) {
     $data = mysqli_fetch_assoc($result);
 
     if ($numrows == 0) {
-        echo "<script>alert('Wrong email or password');</script>";
+        echo "<script>
+        alert('Wrong email or password');
+        window.location='./admin_login.php';
+        </script>";
     } else {
         session_start();
         $_SESSION['email'] = $u_signin_email;
         $_SESSION['username'] = $data['name'];
-        echo "<script>window.location='/course/admin/admin_feed.php'</script>";
+        echo "<script>window.location='./admin_feed.php'</script>";
     }
 }
 

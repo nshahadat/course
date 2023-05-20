@@ -11,12 +11,12 @@ session_start();
                 <?= $_SESSION['username'] ?>
             </button>
         </div>
-        <a href="/course/logout.php">
+        <a href="../logout.php">
             <div class="logout-btn">
                 <button>logout</button>
             </div>
         </a>
-        <a href="/course/students/students_feed.php">
+        <a href="./students_feed.php">
             <div class="adv-btn">
                 <button>Go Back</button>
             </div>
@@ -30,10 +30,10 @@ session_start();
 
 <script>
     function gotopayment() {
-        window.location = '/course/students/payment_info.php'
+        window.location = './payment_info.php'
     }
     function gotocourse() {
-        window.location = '/course/students/check_courses.php'
+        window.location = './check_courses.php'
     }
 </script>
 

@@ -21,10 +21,10 @@ $dataresult = mysqli_query($mysqli, $datasql) or die(mysqli_error($mysqli));
         <div class="username-btn"><button>
                 <?= $_SESSION['username'] ?>
             </button></div>
-        <a href="../index.php">
+        <a href="../logout.php">
             <div class="logout-btn"><button>logout</button></div>
         </a>
-        <a href="/course/advisor/advisor_feed.php">
+        <a href="./advisor_feed.php">
             <div class="adv-btn">
                 <button>Go Back</button>
             </div>
@@ -97,7 +97,7 @@ if (isset($_POST['savebtn'])) {
 
     echo "<script>
     alert('You just changed the payment information of this student');
-    window.location = '/course/account/check_applies.php';
+    window.location = './check_applies.php';
     </script>";
 
 }

@@ -11,7 +11,7 @@ session_start();
                 <?= $_SESSION['username'] ?>
             </button>
         </div>
-        <a href="/course/logout.php">
+        <a href="../logout.php">
             <div class="logout-btn">
                 <button>logout</button>
             </div>
@@ -25,10 +25,10 @@ session_start();
 
 <script>
     function gotoupload() {
-        window.location = '/course/advisor/upload_course.php?advisor=<?= $_SESSION['username'] ?>'
+        window.location = './upload_course.php?advisor=<?= $_SESSION['username'] ?>'
     }
     function gotoapplies() {
-        window.location = '/course/advisor/check_applies.php?advisor=<?= $_SESSION['username'] ?>'
+        window.location = './check_applies.php?advisor=<?= $_SESSION['username'] ?>'
     }
 </script>
 

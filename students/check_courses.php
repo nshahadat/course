@@ -7,13 +7,13 @@ session_start();
 <div class="container">
 
     <div class="btn-section">
-        <div class="username-btn"><a href="/course/students/students_dashboard.php"><button>
+        <div class="username-btn"><a href="./students_dashboard.php"><button>
                     <?= $_SESSION['username'] ?>
                 </button></a></div>
-        <a href="/course/logout.php">
+        <a href="../logout.php">
             <div class="logout-btn"><button>logout</button></div>
         </a>
-        <a href="/course/students/students_feed.php">
+        <a href="./students_feed.php">
             <div class="adv-btn">
                 <button>Go Back</button>
             </div>

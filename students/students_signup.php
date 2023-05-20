@@ -61,7 +61,7 @@ if (isset($_POST['stucreate'])) {
 
         echo "<script>
         alert('Username already exists');
-        window.location='/course/students/students_signup.php';
+        window.location='./students_signup.php';
         </script>";
 
     } else {
@@ -74,14 +74,14 @@ if (isset($_POST['stucreate'])) {
 
             echo "<script>
             alert('Succesful!');
-            window.location='/course/students/students_login.php';
+            window.location='./students_login.php';
             </script>";
 
         } else {
 
             echo "<script>
             alert('Something Went Wrong');
-            window.location='/course/students/students_signup.php';
+            window.location='./students_signup.php';
             </script>";
 
         }

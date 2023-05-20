@@ -7,13 +7,13 @@ session_start();
 <div class="container">
 
     <div class="btn-section">
-        <div class="username-btn"><a href="/coursereg/students/studashboard.php"><button>
+        <div class="username-btn"><a href="./studashboard.php"><button>
                     <?= $_SESSION['username'] ?>
                 </button></a></div>
-        <a href="/course/logout.php">
+        <a href="../logout.php">
             <div class="logout-btn"><button>logout</button></div>
         </a>
-        <a href="/course/students/students_feed.php">
+        <a href="./students_feed.php">
             <div class="adv-btn">
                 <button>Go Back</button>
             </div>
@@ -91,14 +91,14 @@ if (isset($_POST['savebtn'])) {
 
         echo "<script>
         alert('Payment completed for this course');
-        window.location ='/course/students/students_feed.php';
+        window.location ='./students_feed.php';
         </script>";
 
     } else {
 
         echo "<script>
         alert('Something went wrong');
-        window.location ='/course/students/students_feed.php';
+        window.location ='./students_feed.php';
         </script>";
 
     }

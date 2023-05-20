@@ -18,12 +18,12 @@ $courseresult = mysqli_query($mysqli, $coursesql) or die(mysqli_error($mysqli));
                 <?= $_SESSION['username'] ?>
             </button>
         </div>
-        <a href="/course/logout.php">
+        <a href="../logout.php">
             <div class="logout-btn">
                 <button>logout</button>
             </div>
         </a>
-        <a href="/course/advisor/advisor_feed.php">
+        <a href="./advisor_feed.php">
             <div class="adv-btn">
                 <button>Go Back</button>
             </div>
@@ -100,13 +100,13 @@ if (isset($_POST['submitbtn'])) {
 
         echo "<script>
         alert('Course uploaded succesfully');
-        window.location='/course/advisor/upload_course.php'</script>";
+        window.location='./upload_course.php'</script>";
 
     } else {
 
         echo "<script>
         alert('Something went wrong');
-        window.location='/course/advisor/upload_course.php'</script>";
+        window.location='./upload_course.php'</script>";
 
     }
 }

@@ -11,12 +11,12 @@ session_start();
                 <?= $_SESSION['username'] ?>
             </button>
         </div>
-        <a href="/course/logout.php">
+        <a href="../logout.php">
             <div class="logout-btn">
                 <button>logout</button>
             </div>
         </a>
-        <a href="/course/account/account_feed.php">
+        <a href="./account_feed.php">
             <div class="adv-btn">
                 <button style="right:35vw !important">Go Back</button>
             </div>

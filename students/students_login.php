@@ -33,13 +33,13 @@ if (isset($_POST['stulogin'])) {
 
         $_SESSION['username'] = $data['username'];
         $_SESSION['userid'] = $data['id'];
-        echo "<script>window.location='/course/students/students_feed.php'</script>";
+        echo "<script>window.location='./students_feed.php'</script>";
 
     } else {
 
         echo "<script>
         alert('Wrong username or password');
-        window.location ='/course/students/students_login.php';
+        window.location ='./students_login.php';
         </script>";
 
     }

@@ -1,5 +1,5 @@
 <script src="https://kit.fontawesome.com/03c4907ed9.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/coursereg/js/app.js"></script>
+<script type="text/javascript" src="/course/js/app.js"></script>
 </body>
 
 <footer class="footer">
@@ -8,12 +8,12 @@
             <div class="footer-col">
                 <h4>Go to</h4>
                 <ul>
-                    <li><a href="/course/students/students_login.php">Student Login</a></li>
-                    <li><a href="/course/students/students_signup.php">Student Signup</a></li>
-                    <li><a href="/course/account/account_login.php">Accounts Login</a></li>
-                    <li><a href="/course/advisor/advisor_login.php">Advisor Login</a></li>
-                    <li><a href="/course/registrar/registrar_login.php">Registrar Login</a></li>
-                    <li><a href="/course/admin/admin_login.php">Admin</a></li>
+                    <li><a href="./students/students_login.php">Student Login</a></li>
+                    <li><a href="./students/students_signup.php">Student Signup</a></li>
+                    <li><a href="./account/account_login.php">Accounts Login</a></li>
+                    <li><a href="./advisor/advisor_login.php">Advisor Login</a></li>
+                    <li><a href="./registrar/registrar_login.php">Registrar Login</a></li>
+                    <li><a href="./admin/admin_login.php">Admin</a></li>
                 </ul>
             </div>
             <div class="footer-col">

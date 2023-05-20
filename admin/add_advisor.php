@@ -10,7 +10,7 @@ $result = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 <div class="container">
 
     <div class="btn-section">
-        <a href="/course/admin/admin_feed.php">
+        <a href="./admin_feed.php">
             <div class="logout-btn">
                 <button>Go Back</button>
             </div>
@@ -60,7 +60,7 @@ if (isset($_POST['advcreate'])) {
 
         echo "<script>
         alert('User already exists');
-        window.location='/course/admin/add_advisor.php';
+        window.location='./add_advisor.php';
         </script>";
 
     } else {
@@ -73,14 +73,14 @@ if (isset($_POST['advcreate'])) {
 
             echo "<script>
             alert('Succesful!');
-            window.location='/course/admin/add_advisor.php';
+            window.location='./add_advisor.php';
             </script>";
 
         } else {
 
             echo "<script>
             alert('Something Went Wrong');
-            window.location='/course/students/students_signup.php';
+            window.location='./add_advisor.php';
             </script>";
 
         }

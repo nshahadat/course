@@ -11,7 +11,7 @@ session_start();
                 <?= $_SESSION['username'] ?>
             </button>
         </div>
-        <a href="/course/logout.php">
+        <a href="../logout.php">
             <div class="logout-btn">
                 <button>logout</button>
             </div>
@@ -25,10 +25,10 @@ session_start();
 
 <script>
     function gotocheck() {
-        window.location = '/course/registrar/check_credits.php'
+        window.location = './check_credits.php'
     }
     function gotoapplies() {
-        window.location = '/course/registrar/check_applies.php'
+        window.location = './check_applies.php'
     }
 </script>
 

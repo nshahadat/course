@@ -4,10 +4,10 @@ include "../includes/db.php";
 session_start();
 ?>
 <div class="btn-section">
-    <div class="username-btn"><a href="/course/students/students_dashboard.php"><button>
+    <div class="username-btn"><a href="./students_dashboard.php"><button>
                 <?= $_SESSION['username'] ?>
             </button></a></div>
-    <a href="/course/logout.php">
+    <a href="../logout.php">
         <div class="logout-btn"><button>logout</button></div>
     </a>
 </div>
@@ -103,14 +103,14 @@ if (isset($_POST['submitCourse'])) {
 
         echo "<script>
         alert('Request accepted. Wait for confirmation');
-        window.location ='/course/students/students_feed.php';
+        window.location ='./students_feed.php';
         </script>";
 
     } else {
 
         echo "<script>
         alert('Something went wrong');
-        window.location ='/course/students/students_feed.php';
+        window.location ='./students_feed.php';
         </script>";
 
     }

@@ -19,13 +19,13 @@ $result = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
                 <?= $_SESSION['username'] ?>
             </button>
         </div>
-        <a href="/course/logout.php">
+        <a href="../logout.php">
             <div class="logout-btn">
                 <button>logout</button>
             </div>
         </a>
         <div class="adv-btn">
-            <a href="/course/admin/add_advisor.php">
+            <a href="./add_advisor.php">
                 <button>Add Advisor</button>
             </a>
         </div>
@@ -104,14 +104,14 @@ if (isset($_POST['savebtn'])) {
 
             echo "<script>
             alert('Course approved');
-            window.location='/course/admin/admin_feed.php';
+            window.location='./admin_feed.php';
             </script>";
 
         } else {
 
             echo "<script>
             alert('Something went wrong');
-            window.location='/course/admin/admin_feed.php';
+            window.location='./admin_feed.php';
             </script>";
 
         }
@@ -123,14 +123,14 @@ if (isset($_POST['savebtn'])) {
 
             echo "<script>
             alert('Course denied');
-            window.location='/course/admin/admin_feed.php';
+            window.location='./admin_feed.php';
             </script>";
 
         } else {
 
             echo "<script>
             alert('Something went wrong');
-            window.location='/course/admin/admin_feed.php';
+            window.location='./admin_feed.php';
             </script>";
 
         }

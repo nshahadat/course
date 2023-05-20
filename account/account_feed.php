@@ -11,7 +11,7 @@ session_start();
                 <?= $_SESSION['username'] ?>
             </button>
         </div>
-        <a href="/course/logout.php">
+        <a href="..logout.php">
             <div class="logout-btn">
                 <button>logout</button>
             </div>
@@ -26,13 +26,13 @@ session_start();
 
 <script>
     function gotohistory() {
-        window.location = '/course/account/confirmation_history.php'
+        window.location = './confirmation_history.php'
     }
     function gotoapplies() {
-        window.location = '/course/account/check_applies.php'
+        window.location = './check_applies.php'
     }
     function gotoaccounts() {
-        window.location = '/course/account/check_accounts.php'
+        window.location = './check_accounts.php'
     }
 </script>
 

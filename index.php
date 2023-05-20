@@ -1,6 +1,5 @@
 <?php
-include "includes/header.php";
-include "includes/db.php";
+include "./includes/header.php";
 ?>
 
 <section class="hero-section">
@@ -15,5 +14,5 @@ include "includes/db.php";
 <div class="color-design"></div>
 
 <?php
-include "includes/footer.php";
+include "./includes/footer.php";
 ?>
