@@ -103,7 +103,7 @@ if (isset($_POST['submitCourse'])) {
 
         echo "<script>
         alert('Request accepted. Wait for confirmation');
-        window.location ='./students_feed.php';
+        window.location ='./payment_info.php';
         </script>";
 
     } else {

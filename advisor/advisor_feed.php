@@ -20,6 +20,7 @@ session_start();
     <div>
         <button class="extra-btn" onclick=gotoupload()>Upload New Course</button>
         <button class="extra-btn" onclick=gotoapplies()>Check New Applies</button>
+        <button class="extra-btn" onclick=gotoenroll()>Check Enroll Students</button>
     </div>
 </div>
 
@@ -29,6 +30,9 @@ session_start();
     }
     function gotoapplies() {
         window.location = './check_applies.php?advisor=<?= $_SESSION['username'] ?>'
+    }
+    function gotoenroll() {
+        window.location = './enroll_list.php?advisor=<?= $_SESSION['username'] ?>'
     }
 </script>
 
