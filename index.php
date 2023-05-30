@@ -1,28 +1,26 @@
 <?php
 include "./includes/header.php";
 ?>
-  <header>
-        <a href="#" class="logo"><img src="/coursereg/media/images/logo.png" class="nav-logo"></a>
-        <ul>
-            <li><a href="/coursereg/index.php">Home</a></li>
-            <li>
+<header>
+    <a href="#" class="logo"><img src="/coursereg/media/images/logo.png" class="nav-logo"></a>
+    <ul>
+        <li><a href="/course/index.php">Home</a></li>
+        <li>
             <div class="dropdown">
-                <button class="dropbtn">Dropdown
+                <button class="dropbtn">Login
                 </button>
                 <div class="dropdown-content">
-                <a href="#">Student Login</a>
-                <a href="#">Student Signup</a>
-                <a href="#">Accounts Login</a>
-                <a href="#">Advisor Login</a>
-                <a href="#">Registrar Login</a>
-                <a href="#">Admin</a>
+                    <a href="./students/students_login.php">Student Login</a>
+                    <a href="./students/students_signup.php">Student Signup</a>
+                    <a href="./account/account_login.php">Accounts Login</a>
+                    <a href="./advisor/advisor_login.php">Advisor Login</a>
+                    <a href="./registrar/registrar_login.php">Registrar Login</a>
+                    <a href="./admin/admin_login.php">Admin Login</a>
                 </div>
             </div>
-            </li>
-            <li><a href="/coursereg/courses/courses.php">Courses</a></li>
-            <li><a href="/coursereg/login.php" target="_blank">Login</a></li>
-        </ul>
-    </header>
+        </li>
+    </ul>
+</header>
 <section class="hero-section">
     <div class="left-hero">
         <img src="./media/student.png" id="left-hero-img" class="left-hero-img">
@@ -36,37 +34,37 @@ include "./includes/header.php";
 <h1 class="g-name">Gallery</h1>
 <div class="gallery">
     <div class="img-container">
-            <img src="media/Example.jpg"alt="Mountain"data-orginal="media/Examplebig.jpg">
-    </div> 
+        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
+    </div>
     <div class="img-container">
-            <img src="media/Example.jpg"alt="Mountain"data-orginal="media/Examplebig.jpg">
-    </div> 
+        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
+    </div>
     <div class="img-container">
-            <img src="media/Example.jpg"alt="Mountain"data-orginal="media/Examplebig.jpg">
-    </div> 
+        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
+    </div>
     <div class="img-container">
-            <img src="media/Example.jpg"alt="Mountain"data-orginal="media/Examplebig.jpg">
-    </div> 
+        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
+    </div>
 
 </div>
 <h1 class="g-name">Gallery</h1>
 <div class="gallery">
-        <div class="img-container">
-            <img src="media/Example.jpg"alt="Mountain"data-orginal="media/Examplebig.jpg">
-    </div> 
     <div class="img-container">
-            <img src="media/Example.jpg"alt="Mountain"data-orginal="media/Examplebig.jpg">
-    </div> 
+        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
+    </div>
     <div class="img-container">
-            <img src="media/Example.jpg"alt="Mountain"data-orginal="media/Examplebig.jpg">
-    </div> 
+        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
+    </div>
     <div class="img-container">
-            <img src="media/Example.jpg"alt="Mountain"data-orginal="media/Examplebig.jpg">
-    </div> 
+        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
+    </div>
+    <div class="img-container">
+        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
     </div>
 </div>
+</div>
 <div class="modal">
-    <img src="media/Examplebig.jpg" alt=""class="full-img">
+    <img src="media/Examplebig.jpg" alt="" class="full-img">
     <p class="caption">mountain</p>
 </div>
 <?php

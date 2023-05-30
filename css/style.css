@@ -39,10 +39,10 @@ header {
 .dropdown {
     float: left;
     overflow: hidden;
-  }
-  
-  /* Dropdown button */
-  .dropdown .dropbtn {
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
     font-size: 16px;
     border: none;
     outline: none;
@@ -51,48 +51,48 @@ header {
     background-color: inherit;
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin: 0; /* Important for vertical align on mobile phones */
-  }
-  
-  /* Add a red background color to navbar links on hover */
-  .navbar a:hover, .dropdown:hover .dropbtn {
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover,
+.dropdown:hover .dropbtn {
     background: black;
     color: white;
     border-radius: 20px;
-  }
-  
-  /* Dropdown content (hidden by default) */
-  .dropdown-content {
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
     display: none;
     position: absolute;
-    right: 280px;
-    margin-top: 1px;
-    background-color: #f9f9f9;
+    padding-top: 10px;
+    /* background-color: #f9f9f9; */
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     min-height: 110px;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
     float: none;
     color: black;
     padding: 6px 17px;
     text-decoration: none;
     display: block;
     text-align: left;
-  }
-  
-  /* Add a grey background color to dropdown links on hover */
-  .dropdown-content a:hover {
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
     background: black;
     color: white;
-  }
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
     display: block;
-  }
+}
 header ul {
     display: flex;
     justify-content: center;
@@ -955,62 +955,62 @@ td button {
 }
 /* gallery css start */
 .gallery {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-	/* min-height: 100vh; */
-	/* max-height: 50vh; */
-	grid-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    /* min-height: 100vh; */
+    /* max-height: 50vh; */
+    grid-gap: 2rem;
 }
 .img-container {
-	overflow: hidden;
+    overflow: hidden;
 }
 .img-container img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: all 0.3s ease-out;
-	cursor: pointer;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
 }
 .img-container img:hover {
-	transform: scale(1.2);
+    transform: scale(1.2);
 }
 .modal {
-	background: rgba(0, 0, 0, 0.6);
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	pointer-events: none;
-	transition: 0.25s ease-out;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease-out;
 }
 .modal.open {
-	opacity: 1;
-	pointer-events: all;
+    opacity: 1;
+    pointer-events: all;
 }
 .modal p {
-	color: white;
-	font-size: 2rem;
-	position: absolute;
-	bottom: 5%;
-	left: 50%;
-	transform: translate(-50%, -5%);
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -5%);
 }
 .full-img {
-	position: absolute;
-	height: 70%;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%) scale(0.5);
-	transition: all 0.25s ease-out;
+    position: absolute;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: all 0.25s ease-out;
 }
 .full-img.open {
-	transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
 }
 .g-name {
-	text-align: center;
-    padding:10px 20px ;
+    text-align: center;
+    padding: 10px 20px;
     font-family: "Poppins", sans-serif !important;
 }
 /* gallery css end */
