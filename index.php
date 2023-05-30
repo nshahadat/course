@@ -45,23 +45,6 @@ include "./includes/header.php";
     <div class="img-container">
         <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
     </div>
-
-</div>
-<h1 class="g-name">Gallery</h1>
-<div class="gallery">
-    <div class="img-container">
-        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
-    </div>
-    <div class="img-container">
-        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
-    </div>
-    <div class="img-container">
-        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
-    </div>
-    <div class="img-container">
-        <img src="media/Example.jpg" alt="Mountain" data-orginal="media/Examplebig.jpg">
-    </div>
-</div>
 </div>
 <div class="modal">
     <img src="media/Examplebig.jpg" alt="" class="full-img">
