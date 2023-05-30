@@ -960,6 +960,8 @@ td button {
     /* min-height: 100vh; */
     /* max-height: 50vh; */
     grid-gap: 2rem;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .img-container {
     overflow: hidden;
