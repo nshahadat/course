@@ -19,15 +19,18 @@ session_start();
         </a>
     </div>
     <div class="feed-container">
-       <div class="box">
-       <img src="../media/credit.jpg" alt=""class="feed-img">
-       <button class="extra-btn" onclick=gotoapplies()>Check credits</button></div>
-       <div class="box">
-       <img src="../media/check.avif" alt=""class="feed-img"> 
-       <button class="extra-btn" onclick=gotohistory()>Check New Applies</button></div>
-       <div class="box">
-       <img src="../media/enroll.jpg" alt=""class="feed-img">
-       <button class="extra-btn" onclick=gotoaccounts()>Check Enroll List</button></div>
+        <div class="box">
+            <img src="../media/credit.jpg" alt="" class="feed-img">
+            <button class="extra-btn" onclick=gotocheck()>Check credits</button>
+        </div>
+        <div class="box">
+            <img src="../media/check.avif" alt="" class="feed-img">
+            <button class="extra-btn" onclick=gotoapplies()>Check New Applies</button>
+        </div>
+        <div class="box">
+            <img src="../media/enroll.jpg" alt="" class="feed-img">
+            <button class="extra-btn" onclick=gotoenroll()>Check Enroll List</button>
+        </div>
     </div>
 </div>
 <script>
