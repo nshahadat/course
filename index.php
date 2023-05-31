@@ -2,7 +2,7 @@
 include "./includes/header.php";
 ?>
 <header>
-    <a href="#" class="logo"><img src="/coursereg/media/images/logo.png" class="nav-logo"></a>
+    <a href="#" class="logo"><img src="/course/media/logo.jpg" class="nav-logo"></a>
     <ul>
         <li><a href="/course/index.php">Home</a></li>
         <li>
