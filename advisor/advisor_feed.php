@@ -18,13 +18,18 @@ session_start();
             </div>
         </a>
     </div>
-    <div>
-        <button class="extra-btn" onclick=gotoupload()>Upload New Course</button>
-        <button class="extra-btn" onclick=gotoapplies()>Check New Applies</button>
-        <button class="extra-btn" onclick=gotoenroll()>Check Enroll Students</button>
+    <div class="feed-container">
+       <div class="box">
+       <img src="../media/up.png" alt=""class="feed-img">
+       <button class="extra-btn" onclick=gotoapplies()>Upload New Course</button></div>
+       <div class="box">
+       <img src="../media/check.avif" alt=""class="feed-img"> 
+       <button class="extra-btn" onclick=gotohistory()>Check New Applies</button></div>
+       <div class="box">
+       <img src="../media/enroll.jpg" alt=""class="feed-img">
+       <button class="extra-btn" onclick=gotoaccounts()>Check Enroll Students</button></div>
     </div>
 </div>
-
 <script>
     function gotoupload() {
         window.location = './upload_course.php?advisor=<?= $_SESSION['username'] ?>'

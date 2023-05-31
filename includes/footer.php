@@ -28,10 +28,9 @@
             <div class="footer-col">
                 <h4>follow us</h4>
                 <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brand fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png"></a>
+                <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png"></i>
+                 <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/behance.png"></a>
                 </div>
             </div>
         </div>

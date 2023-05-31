@@ -34,7 +34,8 @@ header {
 }
 
 .nav-logo {
-    width: 100px;
+    width: 70px;
+    height: 70px;
 }
 .dropdown {
     float: left;
@@ -1015,7 +1016,28 @@ td button {
     padding: 10px 20px;
     font-family: "Poppins", sans-serif !important;
 }
-/* gallery css end */
+/* feed page css */
+.feed-container{
+    min-height: min-content;
+    min-width:60vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.feed-img{
+height: 240px;
+width: 200px;
+margin-top: 10px;
+}
+.box{
+height: 300px;
+width: 220px;
+border: 2px white solid;
+display: flex;
+align-items: center;
+flex-direction: column;
+
+}
 /* responsive */
 
 @media (max-width: 501px) {
