@@ -54,7 +54,7 @@ session_start();
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="/coursereg/media/images/sample1.png" class="flip-card-img">
+                                <img src="/course/media/sample1.png" class="flip-card-img">
                             </div>
                             <div class="flip-card-back">
                                 <h1>
@@ -115,7 +115,7 @@ $sturesult = mysqli_query($mysqli, $stusql) or die(mysqli_error($mysqli));
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="/coursereg/media/images/sample1.png" class="flip-card-img">
+                                <img src="/course/media/sample1.png" class="flip-card-img">
                             </div>
                             <div class="flip-card-back">
                                 <h1>
