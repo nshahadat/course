@@ -18,8 +18,8 @@
             <div class="footer-col">
                 <h4>Find</h4>
                 <ul>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="./contactus.php">Contact Us</a></li>
+                    <li><a href="./aboutus.php">About Us</a></li>
                     <li><a href="#">Terms and Policies</a></li>
                     <li><a href="#">Any questions?</a></li>
                 </ul>
